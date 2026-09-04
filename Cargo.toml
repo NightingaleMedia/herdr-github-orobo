@@ -1,0 +1,22 @@
+[package]
+name = "herdr-jira"
+version = "0.3.2"
+edition = "2021"
+license = "MIT"
+description = "Jira TUI plugin for herdr: filters, search, status transitions, delegate issues to running or new agents"
+
+[dependencies]
+ratatui = "0.29"
+crossterm = "0.28"
+ureq = { version = "2.12", features = ["json", "native-certs", "proxy-from-env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+base64 = "0.22"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+proxyparser = "0.2"
+
+[profile.release]
+strip = true
+lto = true
